@@ -17,6 +17,10 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    
+        String placeHolder = "---";
+        request.setAttribute("output", placeHolder);
+        
      getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalulator.jsp").forward(request, response);
      return;
     }
@@ -30,13 +34,13 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         double valueOne = 0;
         double valueTwo = 0;
         double total = 0;
-        String placeHolder = "---";
+        
         
         String firstinput = request.getParameter("firstInput");
         String secondinput = request.getParameter("secondInput");
         request.setAttribute("userValueOne", firstinput);
         request.setAttribute("userValueTwo", secondinput);
-        request.setAttribute("output", placeHolder);
+        
        // getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalulator.jsp").forward(request, response);
        // return;
         // check if input is valid; if not, display error message
